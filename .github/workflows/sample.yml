@@ -27,6 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
+        id: populate-result
         run: |
           result='hellongkjdhgkdkghskdghskdhgksdhgksdhgksbdjgsbdgbsdkgsdkjbsbgksdbgksdbgksbdkgsdkgskdbgksbdkgbsdkbsjgbsdkgb'
           for i in {1..10}
@@ -39,4 +40,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo ${{ toJSON(steps) }} 
+          echo ${{ toJSON(steps) }} | jq .
