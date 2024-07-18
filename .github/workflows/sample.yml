@@ -33,6 +33,7 @@ jobs:
           do
             result="$result$result"
           done
+          echo "$result"
           echo "result=$result" >> $GITHUB_OUTPUT
 
       # Runs a set of commands using the runners shell
