@@ -33,6 +33,7 @@ jobs:
           do
             result=$result$result
           done
+          echo "result=$result" >> $GITHUB_OUTPUT
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
