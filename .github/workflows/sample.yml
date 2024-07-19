@@ -57,4 +57,4 @@ jobs:
 
       - name: print step context
         id: print-step-context
-        uses: shyjuabhilash/test-arguments-action@main
+        uses: shyjuabhilash/test-arguments-action@v0.0.1
