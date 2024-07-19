@@ -59,4 +59,4 @@ jobs:
         id: print-step-context
         uses: shyjuabhilash/test-arguments-action@v0.0.1
         with:
-          stepContext: ${{toJSON(steps)}}
+          stepsContext: ${{toJSON(steps)}}
