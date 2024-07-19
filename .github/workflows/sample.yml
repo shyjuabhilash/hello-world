@@ -57,6 +57,6 @@ jobs:
 
       - name: print step context
         id: print-step-context
-        uses: shyjuabhilash/test-arguments-action@v0.0.1
+        uses: shyjuabhilash/test-arguments-action@main
         with:
           stepsContext: ${{toJSON(steps)}}
