@@ -55,6 +55,6 @@ jobs:
         run: |
           echo '${{ toJSON(steps) }}' | jq 'to_entries | map({key: .key, value: {outputs:{result:.value.outputs.result,error_code:.value.outputs.error_code,error_msg:.value.outputs.error_msg},conclusion:.value.conclusion}})|from_entries'
 
-      - name: print-step-context
-        id: print step context
+      - name: print step context
+        id: print-step-context
         uses: shyjuabhilash/test-arguments-action@main
