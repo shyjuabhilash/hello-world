@@ -30,7 +30,7 @@ jobs:
         id: populate-result-value
         run: |
           resultValue="hellongkjdhgkdkghskdghskdhgksdhgksdhgksbdjgsbdgbsdkgsdkjbsbgksdbgksdbgksbdkgsdkgskdbgksbdkgbsdkbsjgbsdkgb"
-          for i in {1..15}
+          for i in {1..12}
           do
             resultValue="$resultValue$resultValue"
           done
