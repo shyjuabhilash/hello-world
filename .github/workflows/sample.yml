@@ -54,7 +54,7 @@ jobs:
       - name: Populate step context
         id: populate-step-context
         run: |
-          echo '${{ toJSON(steps) }}' | jq 'to_entries | map({key: .key, value: {outputs:{result:.value.outputs.result,error_code:.value.outputs.error_code,error_msg:.value.outputs.error_msg},conclusion:.value.conclusion}})|from_entries' | {read stepsContext;}
+          stepsContext=`echo '${{ toJSON(steps) }}' | jq 'to_entries | map({key: .key, value: {outputs:{result:.value.outputs.result,error_code:.value.outputs.error_code,error_msg:.value.outputs.error_msg},conclusion:.value.conclusion}})|from_entries'`
           echo '$stepsContext'
           echo 'stepsContext=$stepsContext' >> $GITHUB_OUTPUT
       - name: print step context
