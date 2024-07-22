@@ -35,7 +35,7 @@ jobs:
           #   resultValue="$resultValue$resultValue"
           # done
           # echo "$resultValue"
-          echo "resultValue=$resultValue" >> $GITHUB_OUTPUT
+          echo \'resultValue=$resultValue\' >> $GITHUB_OUTPUT
 
     # populate result
       - name: Run a one-line script
