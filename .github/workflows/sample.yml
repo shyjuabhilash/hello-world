@@ -50,13 +50,16 @@ jobs:
           echo "error_code=EOO1" >> $GITHUB_OUTPUT
           echo "error_msg=Internal Error." >> $GITHUB_OUTPUT
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      # Populate step context
+      - name: Populate step context
+        id: populate-step-context
         run: |
-          echo '${{ toJSON(steps) }}' | jq 'to_entries | map({key: .key, value: {outputs:{result:.value.outputs.result,error_code:.value.outputs.error_code,error_msg:.value.outputs.error_msg},conclusion:.value.conclusion}})|from_entries'
-
+          echo '${{ toJSON(steps) }}' | jq 'to_entries | map({key: .key, value: {outputs:{result:.value.outputs.result,error_code:.value.outputs.error_code,error_msg:.value.outputs.error_msg},conclusion:.value.conclusion}})|from_entries' | {read stepsContext;}
+          echo '$stepsContext'
+          echo 'stepsContext=$stepsContext' >> $GITHUB_OUTPUT
       - name: print step context
         id: print-step-context
         uses: shyjuabhilash/test-arguments-action@main
         with:
-          stepsContext: ${{toJSON(steps)}}
+          stepsContext: ${{steps.populate-step-context.outputs.stepsContext}}
+          #stepsContext: ${{toJSON(steps)}}
